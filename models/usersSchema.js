@@ -17,6 +17,7 @@ const userSchema = new Schema({
         required: true,
         trim: true,
         lowercase: true
+        
     },
 
     email: {
@@ -28,6 +29,20 @@ const userSchema = new Schema({
 
     },
 
+    phone: {
+
+        type: String,
+        required: true
+
+    },
+
+    password: {
+
+        type: String,
+        required: true
+
+    },
+
     disease: {
 
         type: String,
@@ -36,9 +51,12 @@ const userSchema = new Schema({
         lowercase: true
 
     },
+
     hospital: {
+
         type: ObjectId,
         ref: 'Hospitals'
+
     },
 
     doctor: {

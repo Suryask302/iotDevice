@@ -1,7 +1,25 @@
-const { mongoose, connect } = require("mongoose")
+/*                                          connecting MongoDb                                        */
 
-connect(process.env.DBURI, { useNewUrlParser: true })
-    .then(_ => console.log('Mongo db connected'))
-    .catch(e => console.log(e))
+require('dotenv').config()
+const { connect, connection } = require('mongoose')
 
-module.exports = connect
+connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+    .then(() => console.log(`Mongo-DB Connected`))
+    .catch((err) => console.log(err))
+
+connection.on(`connected`, _ => {
+    console.log(`mongoose Connected To DB`)
+})
+
+connection.on(`error`, err => {
+    console.log(err.message)
+})
+
+connection.on(`disconnected`, _ => {
+    console.log(`mongoose Connection Is Disconnected`)
+})
+
+process.on(`SIGINT`, async _ => {
+    await connection.close()
+    process.exit(0)
+})
