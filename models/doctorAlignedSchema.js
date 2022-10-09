@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 const { ObjectId } = Schema.Types
 
-const doctorsSchema = new Schema({
+const drAlignedSchema = new Schema({
 
 
     id: {
@@ -9,7 +9,7 @@ const doctorsSchema = new Schema({
         required: true
     },
 
-    hospitalId: {
+    doctorId: {
 
         type: String,
         required: true,
@@ -18,7 +18,7 @@ const doctorsSchema = new Schema({
 
     },
 
-    doctorName: {
+    patientId: {
 
         type: String,
         required: true,
@@ -26,13 +26,10 @@ const doctorsSchema = new Schema({
         lowercase: true
     },
 
-    age: {
+    status: {
 
         type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
+        enum : ['Active', 'Unactive']
     },
 
     degree: {
@@ -44,14 +41,13 @@ const doctorsSchema = new Schema({
     },
 
 
-    gender: {
-
+    dateAdded: {
        type : String,
-       enum : ['Male', 'Female', 'Other']
+       required : true
 
     },
 
-    dob : {
+    dateUpdated : {
         type : String,
         required : true
     }
@@ -59,4 +55,4 @@ const doctorsSchema = new Schema({
 
 })
 
-module.exports = model('Doctor', doctorsSchema)
+module.exports = model('Doctor_aligned', drAlignedSchema)

@@ -1,15 +1,23 @@
 const { Schema, model } = require('mongoose')
-const { ObjectId } = Schema.Types
 
-const doctorsSchema = new Schema({
+
+const reminderSchema = new Schema({
 
 
     id: {
+
+        type: Number,
+        required: true
+
+    },
+
+    userId: {
         type: Number,
         required: true
     },
 
-    hospitalId: {
+
+    notification: {
 
         type: String,
         required: true,
@@ -18,15 +26,20 @@ const doctorsSchema = new Schema({
 
     },
 
-    doctorName: {
+    selfId: {
+        type: String
+    },
+
+    title: {
 
         type: String,
         required: true,
         trim: true,
         lowercase: true
+
     },
 
-    age: {
+    details: {
 
         type: String,
         required: true,
@@ -35,28 +48,28 @@ const doctorsSchema = new Schema({
 
     },
 
-    degree: {
+    timimg: {
 
         type: String,
         required: true,
         trim: true,
         lowercase: true
-    },
-
-
-    gender: {
-
-       type : String,
-       enum : ['Male', 'Female', 'Other']
 
     },
 
-    dob : {
-        type : String,
-        required : true
+    seenNotification: {
+        type: Boolean,
+        default: false
+    },
+
+    dateUpdated: {
+        type: String
+    },
+
+    dateUpdated: {
+        type: String
     }
-
 
 })
 
-module.exports = model('Doctor', doctorsSchema)
+module.exports = model('Reminder', reminderSchema)
