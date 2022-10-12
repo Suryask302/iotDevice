@@ -6,11 +6,12 @@ const morgan = require('morgan')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
 require('./utils/passport-setup')
-
-// require('./db/connect')
+require('./db/connect')
 const { notFound, errorHandler } = require('./utils/errors')
-// const route = require('./routes/userRoutes')
+
 const authRoute = require('./routes/auth')
+const medRoutes = require('./routes/medicineRoutes')
+const patientRoutes = require('./routes/patientsRoutes')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -29,8 +30,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use('/', route)
 app.use('/', authRoute)
+app.use('/', medRoutes)
+app.use('/', patientRoutes)
+
 app.use(notFound)
 app.use(errorHandler)
 
