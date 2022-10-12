@@ -4,8 +4,10 @@ const { ObjectId } = Schema.Types
 const patientSchema = new Schema({
 
     id: {
+
         type: Number,
         required: true
+        
     },
 
     age: {

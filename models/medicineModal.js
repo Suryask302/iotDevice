@@ -82,12 +82,6 @@ const medicineSchema = new Schema({
         enum: ['doesNotRepeat', 'every5Minutes', 'every10Minutes', 'every20Minutes', 'every30Minutes']
     },
 
-
-    dateAdded: {
-        type: String,
-    }
-
-
-})
+}, { timestamps: true })
 
 module.exports = model('Medicine', medicineSchema)

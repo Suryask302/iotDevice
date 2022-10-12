@@ -18,15 +18,16 @@ app.use(morgan('dev'))
 
 app.use(
 	cookieSession({
+
 		name: "session",
 		keys: ["suryasK"],
-		maxAge: 24 * 60 * 60 * 100,
+		maxAge: 24 * 60 * 60 * 100
+
 	})
 )
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // app.use('/', route)
 app.use('/', authRoute)

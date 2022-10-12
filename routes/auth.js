@@ -4,13 +4,18 @@ const passport = require("passport")
 router.get("/login/success", (req, res) => {
 
     if (req.user) {
+
         res.status(200).json({
             error: false,
             message: "Successfully Loged In",
             user: req.user,
         })
+
     } else {
-        res.status(403).json({ error: true, message: "Not Authorized" })
+        res.status(403).json({
+            error: true,
+            message: "Not Authorized"
+        })
     }
 
 })
@@ -27,26 +32,33 @@ router.get("/login/failed", (req, res) => {
 router.get("/google", passport.authenticate("google", ["profile", "email"]))
 router.get('/facebook', passport.authenticate('facebook', { scope: 'email' }))
 
-router.get(
-    "/google/callback",
+router.get("/google/callback",
+
     passport.authenticate("google", {
         successRedirect: '/login/success',
         failureRedirect: "/login/failed",
     })
+
 )
 
 router.get('/facebook/callback',
-	passport.authenticate('facebook', {
-		successRedirect : '/login/success',
-        failureRedirect : '/login/failed'
-    }
-))
+
+    passport.authenticate('facebook', {
+        successRedirect: '/login/success',
+        failureRedirect: '/login/failed'
+    })
+
+)
 
 router.get("/logout", (req, res) => {
-    req.logout();
+
+    req.logout({
+        keepSessionInfo: false
+    })
     res.send({
         message: 'logout SuccessFully'
     })
+
 })
 
 module.exports = router;
