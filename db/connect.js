@@ -3,7 +3,7 @@
 require('dotenv').config()
 const { connect, connection } = require('mongoose')
 
-connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+connect(process.env.DBURI, { useNewUrlParser: true })
     .then(() => console.log(`Mongo-DB Connected`))
     .catch((err) => console.log(err))
 
