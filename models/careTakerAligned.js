@@ -3,30 +3,24 @@ const { ObjectId } = Schema.Types
 
 const careTakerAlignedSchema = new Schema({
 
-
-    id: {
-
+    cta_id: {
         type: Number,
-        required: true
-
+        required: true,
     },
-
-    doctorStatus: {
-
+    cta_patient_id: {
+        type: Number,
+        required: true,
+    },
+    cta_ct_id: {
         type: String,
-        enum : ['Active', 'Inactive']
-        
+        enum: ['true', 'false']
     },
-
-    dateAdded: {
+    cta_dateAdded: {
         type: String
     },
-
-    dateUpdated: {
+    cta_dateUpdated: {
         type: String
     }
-
-
 })
 
 module.exports = model('CareTaker_Aligned', careTakerAlignedSchema)

@@ -4,12 +4,28 @@ const { ObjectId } = Schema.Types
 const doctorsSchema = new Schema({
 
 
-    id: {
+    dr_id: {
         type: Number,
         required: true
     },
 
-    hospitalId: {
+    dr_hosp_Id: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+
+    },
+
+    dr_name: {
+
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+    },
+
+    dr_age: {
 
         type: String,
         required: true,
@@ -18,24 +34,7 @@ const doctorsSchema = new Schema({
 
     },
 
-    doctorName: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-    },
-
-    age: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    degree: {
+    dr_degree: {
 
         type: String,
         required: true,
@@ -44,18 +43,37 @@ const doctorsSchema = new Schema({
     },
 
 
-    gender: {
+   dr_gender: {
 
        type : String,
        enum : ['Male', 'Female', 'Other']
 
     },
 
-    dob : {
+    dr_dob : {
         type : String,
         required : true
-    }
+    },
 
+    dr_mob : {
+        type : String,
+        required : true
+    },
+
+    dr_email : {
+        type : String,
+        required : true
+    },
+    dr_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    dr_dateAdded: {
+        type: String
+    },
+    dr_dateUpdated: {
+        type: String
+    }
 
 })
 

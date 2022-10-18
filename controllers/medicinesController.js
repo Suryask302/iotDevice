@@ -7,62 +7,57 @@ const addMedicine = async (req, res, next) => {
 
     try {
 
-        if (!req.user) {
-            throw createHttpError(401, `please login first`)
-        }
-
         const {
 
-            medicineId,
-            medicineName,
-            compartment,
-            colors,
-            medicineType,
-            frequencyDays,
-            doseCounts,
-            repeatStatus,
-            repeatDose
+            med_name,
+            med_compartment,
+            med_colors,
+            med_type,
+            med_frequency_days,
+            med_dose_counts,
+            med_time,
+            med_repeatStatus,
+            med_repeatDose,
+            med_status,
+            med_dateAdded,
+            med_dateUpdated
 
         } = req.body
 
-        if (!medicineId || !Number(medicineId)) {
-            throw createHttpError(400, `id is required`)
-        }
-
-        if (!medicineName || !isValid(medicineName)) {
+        if (!med_name || !isValid(med_name)) {
             throw createHttpError(400, `medicineName is required`)
         }
 
-        if (!compartment || !isValid(compartment)) {
+        if (!med_compartment || !isValid(med_compartment)) {
             throw createHttpError(400, `compartment is required`)
         }
 
-        if (!colors || !isValid(colors)) {
+        if (!med_colors || !isValid(med_colors)) {
             throw createHttpError(400, `colors is required`)
         }
 
-        if (!medicineType || !isValid(medicineType)) {
+        if (!med_type || !isValid(med_type)) {
             throw createHttpError(400, `medicineType is required`)
         }
 
-        if (!frequencyDays || !isValid(frequencyDays)) {
+        if (!med_frequency_days || !isValid(med_frequency_days)) {
             throw createHttpError(400, `frequencyDays is required`)
         }
 
-        if (!doseCounts || !isValid(doseCounts)) {
+        if (!med_dose_counts || !isValid(med_dose_counts)) {
             throw createHttpError(400, `doseCounts is required`)
         }
 
-        if (!repeatStatus || !isValid(repeatStatus)) {
+        if (!med_time || !isValid(med_time)) {
             throw createHttpError(400, `repeatStatus is required`)
         }
 
-        if (!repeatDose || !isValid(repeatDose)) {
-            throw createHttpError(400, `repeatDose is required`)
-        }
+        // if (!med_repeatStatus || !isValid(med_repeatStatus)) {
+        //     throw createHttpError(400, `repeatDose is required`)
+        // }
 
         let finalData = {
-            id: await medicines.find().count() + 1,
+            med_id: await medicines.find().count() + 1,
             ...req.body
         }
 
@@ -316,7 +311,12 @@ const getAllMedCollections = async (req, res, next) => {
 
     try {
 
+        if(!req.user) {
+            res.send('please login first')
+        }
+
         let allDocuments = await medicines.find()
+        
         return res.status(200).send({
             status: true,
             data: allDocuments

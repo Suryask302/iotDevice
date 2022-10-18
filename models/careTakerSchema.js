@@ -1,76 +1,49 @@
 const { Schema, model } = require('mongoose')
 const { ObjectId } = Schema.Types
 
-const careTakerSchema = new Schema({
-
-
-    id: {
-        type: Number,
-        required: true
-    },
-
-    careTakerName: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    careTakerId: {
-
+const careTakerSchema = new Schema({ 
+    ct_Id: {
         type: Number,
         required: true,
-
     },
-
-    age: {
-
+    ct_name: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+    },
+    ct_age: {
         type: Number,
         required: true,
-
     },
-
-    dob: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-
-    email: {
-
+    ct_dob: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
-
-    contact: {
+    ct_email: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
-    
-    status: {
+    ct_mob: {
         type: String,
-        enum: ['Active', 'Inactive']
+        required: true,
+        trim: true,
+        lowercase: true
     },
-
-    dateAdded: {
+    ct_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    ct_dateAdded: {
         type: String
     },
-
-    dateUpdated: {
+    ct_dateUpdated: {
         type: String
     }
-
-
 })
 
 module.exports = model('Caretaker', careTakerSchema)

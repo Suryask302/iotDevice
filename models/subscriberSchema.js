@@ -4,31 +4,35 @@ const { Schema, model } = require('mongoose')
 const subscriberSchema = new Schema({
 
 
-    id: {
-
+    sub_id: {
         type: Number,
         required: true
-
+        ///auto inc //primary
     },
 
-    name: {
-
+    sub_name: {
         type: String,
-        required: true
-
+        required: false
     },
-
-    email: {
+    sub_email: {
         type: String
     },
-
-    createdAt: {
+    sub_send: {
         type: String,
+        enum: ['true', 'false']
+        //default true
     },
-
-    updatedAt: {
+    sub_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    sub_dateAdded: {
+        type: String
+    },
+    sub_dateUpdated: {
         type: String
     }
+
     
 })
 

@@ -4,24 +4,15 @@ const { Schema, model } = require('mongoose')
 const medicineSchema = new Schema({
 
 
-    id: {
+    med_id: {
 
         type: Number,
         required: true
 
     },
+   
 
-
-    medicineId: {
-
-        type: Number,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    medicineName: {
+    med_name: {
 
         type: String,
         required: true,
@@ -30,7 +21,7 @@ const medicineSchema = new Schema({
 
     },
 
-    compartment: {
+    med_compartment: {
 
         type: String,
         required: true,
@@ -39,7 +30,7 @@ const medicineSchema = new Schema({
 
     },
 
-    colors: {
+    med_colors: {
 
         type: String,
         required: true,
@@ -47,40 +38,57 @@ const medicineSchema = new Schema({
 
     },
 
-    medicineType: {
+    med_type: {
 
         type: String,
         enum: ['Capsule', 'Tablet', 'Liquid', 'Eyedrop']
 
     },
 
-    frequencyDays: {
+    med_frequency_days: {
 
         type: String,
         enum: ['oneDayGap', 'twoDayGap', 'everyDay']
 
     },
 
-    doseCounts: {
-
+   med_dose_counts: {
         type: String,
         enum: ['dose1', 'dose2', 'dose3']
-
     },
-
-    dateAdded: {
+    med_time: {
         type: String,
-    },
+        enum: ['befor', 'after', '']
+        // time arreay 
 
-    repeatStatus: {
+    },
+    med_repeatStatus: {
         type: String,
         enum: ['Mute', 'Unmute']
     },
-
-    repeatDose: {
+    // med_sound_setting: {
+    //     type: String,
+    //     enum: ['ring', 'vibrate']
+    // },
+    // med_volume: {
+    //     type: number,
+    // },
+    med_repeatDose: {
         type: String,
         enum: ['doesNotRepeat', 'every5Minutes', 'every10Minutes', 'every20Minutes', 'every30Minutes']
     },
+
+    med_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    med_dateAdded: {
+        type: String
+    },
+    med_dateUpdated: {
+        type: String
+    }
+
 
 }, { timestamps: true })
 

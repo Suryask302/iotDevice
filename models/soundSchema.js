@@ -4,38 +4,42 @@ const { Schema, model } = require('mongoose')
 const soundSchema = new Schema({
 
 
-    id: {
+    soun_id: {
 
         type: Number,
         required: true
 
     },
 
-    soundId: {
 
-        type: Number,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    userId: {
+    soun_userid: {
         type: Number
     },
 
-    rngToneValLevel : {
+    soun_type : {
 
         type : String,
         enum : ['Silent', 'Vibrate', 'Ringing']
 
     },
+    soun_leval: {
+        type : number,
 
-    dateCreated: {
-        type: String
     },
 
-    dateUpdated: {
+    soun_ring: {
+        type : string,
+
+    },
+
+    soun_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    soun_dateAdded: {
+        type: String
+    },
+    soun_dateUpdated: {
         type: String
     }
 

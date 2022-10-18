@@ -4,13 +4,8 @@ const { Schema, model } = require('mongoose')
 const deviceSchema = new Schema({
 
 
-    id: {
-        type: Number,
-        required: true
-    },
 
-
-    deviceId: {
+    dev_Id: {
 
         type: String,
         required: true,
@@ -18,35 +13,48 @@ const deviceSchema = new Schema({
         lowercase: true
 
     },
+    dev_con_at: {
+        type: String,
+        required: true,
+        //date format
 
-    connectedTime: {
+    },
 
+    dev_dcon_at: {
         type: String,
         required: true,
 
     },
-
-    disconnectedTime: {
+    dev_total_time: {
         type: String,
         required: true,
+        // hrs format
 
     },
 
-    contact: {
 
+    dev_pt_id: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
 
     },
-
-    deviceType : {
-
+    dev_Type : {
         type: String,
         required: true,
         enum : ['Bluetooth', 'Wifi']
 
+    },
+    dev_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    dev_dateAdded: {
+        type: String
+    },
+    dev_dateUpdated: {
+        type: String
     }
 
  

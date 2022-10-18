@@ -1,5 +1,5 @@
 const createHttpError = require('http-errors')
-const patientsCollection = require('../models/patientModal')
+const patientsCollection = require('../models/patientSchema')
 const { isValid } = require('../utils/validations')
 
 const addPatient = async (req, res, next) => {

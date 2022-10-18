@@ -4,35 +4,35 @@ const { Schema, model } = require('mongoose')
 const contactUsSchema = new Schema({
 
 
-    id: {
-
+    cont_id: {
         type: Number,
         required: true
-
     },
-
-    name: {
-
+    cont_name: {
         type: String,
         required: true
-
     },
 
-    email: {
+    cont_email: {
         type: String
     },
 
-    message: {
+   cont_msg: {
 
         type: String,
         required: true
 
     },
-
-    createdAt: {
+    cont_dateAdded: {
+        type: String
+    },
+    cont_dateUpdated: {
+        type: String
+    },
+    cont_status: {
         type: String,
-
-    }
+        enum: ['true', 'false']
+    },
 })
 
 module.exports = model('Contactus', contactUsSchema)

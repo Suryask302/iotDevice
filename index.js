@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require("express")
 const app = express()
-const port = 3000
+const port = 4000
 const morgan = require('morgan')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
@@ -30,8 +30,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', authRoute)
 app.use('/', medRoutes)
+app.use('/', authRoute)
 app.use('/', patientRoutes)
 
 app.use(notFound)

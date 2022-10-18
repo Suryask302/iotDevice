@@ -4,53 +4,70 @@ const { ObjectId } = Schema.Types
 const drAlignedSchema = new Schema({
 
 
-    id: {
+    dra_id: {
         type: Number,
         required: true
     },
 
-    doctorId: {
-
+    dra_dr_Id: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
 
     },
-
-    patientId: {
-
+    dra_pt_Id: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
+
     },
-
-    status: {
-
+    dra_status: {
         type: String,
-        enum : ['Active', 'Unactive']
+        enum: ['true', 'false']
     },
-
-    degree: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-    },
-
-
     dateAdded: {
-       type : String,
-       required : true
-
+        type: String
     },
-
-    dateUpdated : {
-        type : String,
-        required : true
+    dateUpdated: {
+        type: String
     }
+
+
+    // patientId: {
+
+    //     type: String,
+    //     required: true,
+    //     trim: true,
+    //     lowercase: true
+    // },
+
+    // status: {
+
+    //     type: String,
+    //     enum : ['Active', 'Unactive']
+    // },
+
+    // degree: {
+
+    //     type: String,
+    //     required: true,
+    //     trim: true,
+    //     lowercase: true
+    // },
+
+
+    // dateAdded: {
+    //    type : String,
+    //    required : true
+
+    // },
+
+    // dateUpdated : {
+    //     type : String,
+    //     required : true
+    // }
 
 
 })

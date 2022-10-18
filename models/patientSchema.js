@@ -3,14 +3,22 @@ const { ObjectId } = Schema.Types
 
 const patientSchema = new Schema({
 
-    id: {
+    pt_id: {
 
         type: Number,
         required: true
         
     },
 
-    age: {
+    pt_age: {
+
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+
+    },
+    pt_name: {
 
         type: String,
         required: true,
@@ -19,8 +27,7 @@ const patientSchema = new Schema({
 
     },
 
-    height: {
-
+    pt_bloodGroup: {
         type: String,
         required: true,
         trim: true,
@@ -28,71 +35,49 @@ const patientSchema = new Schema({
 
     },
 
-    width: {
-
+    pt_causes: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
 
-    name: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    bloodGroup: {
-
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
-    },
-
-    causes: {
+    pt_simptoms: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
 
-    simptoms: {
+    pt_profession: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
 
-    profession: {
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-    },
-
-    gender: {
+    pt_gender: {
         type: String,
         enum: ['male, female, other']
     },
 
-    dateTime: {
+    pt_dateTime: {
         type: String,
     },
 
-    idleTime: {
+    // idleTime: {
+    //     type: String
+    // },
+
+    pt_dob: {
         type: String
     },
 
-    dob: {
+    pt_box: {
         type: String
     },
 
-    address: {
+    pt_address: {
 
         type: String,
         required: true,
@@ -101,24 +86,23 @@ const patientSchema = new Schema({
 
     },
 
-    contactDetails: {
-
+    pt_mob: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
-
     },
 
-    status: {
-
+    pt_status: {
         type: String,
-        required: true,
-        trim: true,
-        lowercase: true
-
+        enum: ['true', 'false']
+    },
+    pt_dateAdded: {
+        type: String
+    },
+    pt_dateUpdated: {
+        type: String
     }
-
 
 })
 

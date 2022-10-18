@@ -4,22 +4,15 @@ const { Schema, model } = require('mongoose')
 const hospitalSchema = new Schema({
 
 
-    id: {
+    hosp_id: {
         type: Number,
         required: true
     },
 
 
-    hospitalId: {
 
-        type: Number,
-        required: true,
-        trim: true,
-        lowercase: true
 
-    },
-
-    hospitalName: {
+    hosp_name: {
 
         type: String,
         required: true,
@@ -28,14 +21,23 @@ const hospitalSchema = new Schema({
 
     },
 
-    address: {
+    hosp_address: {
         type: String,
         required: true,
         trim: true,
         lowercase: true
     },
 
-    contact: {
+    hosp_contact: {
+
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+
+    },
+    
+    hosp_email: {
 
         type: String,
         required: true,
@@ -44,14 +46,24 @@ const hospitalSchema = new Schema({
 
     },
 
-    registrationNO: {
+    hosp_reg_no: {
 
         type: String,
         required: true
 
     },
 
-    establishedDate: {
+    hosp_establishedDate: {
+        type: String
+    },
+    hosp_status: {
+        type: String,
+        enum: ['true', 'false']
+    },
+    hosp_dateAdded: {
+        type: String
+    },
+    hosp_dateUpdated: {
         type: String
     }
 

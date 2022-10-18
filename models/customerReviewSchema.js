@@ -4,39 +4,39 @@ const { Schema, model } = require('mongoose')
 const custReviewSchema = new Schema({
 
 
-    id: {
-
+    cr_id: {
         type: Number,
         required: true
-
     },
 
-    name: {
+    cr_name: {
 
         type: String,
         required: true
 
     },
 
-    rating: {
+    cr_rating: {
         type: Number
     },
 
-    message: {
+    cr_msg: {
 
         type: String,
         required: true
 
     },
 
-    createdAt: {
+  
+    cr_status: {
         type: String,
-
+        enum: ['true', 'false']
     },
-    
-    updatedAt: {
-        type: String,
-
+    cr_dateAdded: {
+        type: String
+    },
+    cr_dateUpdated: {
+        type: String
     }
 
 })
